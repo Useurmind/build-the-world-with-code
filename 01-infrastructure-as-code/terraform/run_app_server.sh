@@ -14,4 +14,4 @@ sudo systemctl status docker
 # sudo usermod -aG docker ${USER}
 # su - ${USER}
 
-sudo docker run -p 80:80 nginxdemos/hello 
+sudo docker run -d -p 80:80 nginxdemos/hello 
