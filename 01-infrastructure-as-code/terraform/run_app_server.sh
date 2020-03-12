@@ -20,4 +20,4 @@ sudo systemctl status docker
 # sudo usermod -aG docker ${USER}
 # su - ${USER}
 
-sudo docker run -d -e GOGREETING_DATASOURCE=$PG_CONNECTIONSTRING -p 8080:8080 useurmind/go-greeting:latest 
+sudo docker run -d -e GOGREETING_DATASOURCE="$PG_CONNECTIONSTRING" -p 8080:8080 useurmind/go-greeting:latest 
