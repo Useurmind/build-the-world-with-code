@@ -1,5 +1,11 @@
 #!/bin/bash
 
+PG_USER=$1
+PG_PASSWORD=$2
+PG_HOST=$3
+PG_DATABASE=$4
+PG_CONNECTIONSTRING="user=$PG_USER password=$PG_PASSWORD host=$PG_HOST port=5432 dbname=$PG_DATABASE sslmode=disable"
+
 sudo apt update 
 
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
@@ -14,4 +20,4 @@ sudo systemctl status docker
 # sudo usermod -aG docker ${USER}
 # su - ${USER}
 
-sudo docker run -d -p 80:80 nginxdemos/hello 
+sudo docker run -d -e GOGREETING_DATASOURCE=$PG_CONNECTIONSTRING -p 8080:8080 useurmind/go-greeting:latest 
